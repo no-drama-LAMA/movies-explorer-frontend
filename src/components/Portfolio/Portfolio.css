@@ -1,0 +1,113 @@
+.portfolio {
+  padding: 0 70px 125px;
+}
+
+.portfolio__title {
+  margin: 0;
+  margin-bottom: 50px;
+  color: #8B8B8B;
+  font-family: Inter, Arial, sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.portfolio__items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.portfolio__item {
+  margin-bottom: 20px;
+  padding-bottom: 19px;
+  border-bottom: 1px solid #424242;
+}
+
+.portfolio__item:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.portfolio__link {
+  text-decoration: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  color: #FFF;
+  font-family: Inter, Arial, sans-serif;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 50px;
+  letter-spacing: -1.2px;
+}
+
+.portfolio__link-text {
+  margin: 0;
+}
+
+.portfolio__link-text:hover {
+  opacity: 0.7;
+}
+
+.portfolio__link-button {
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  color: #FFF;
+  background-image: url(../../images/portfolio-link-button.svg);
+  width: 29px;
+  height: 50px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 16px 16px;
+}
+
+.portfolio__link-button:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+@media screen and (max-width: 768px) {
+  .portfolio {
+    padding: 0 50px 90px;
+  }
+  .portfolio__title {
+    color: #A0A0A0;
+  }
+  .portfolio__item {
+    border-bottom: 1px solid #E6E6E6;
+  }
+  .portfolio__link {
+    font-size: 28px;
+    letter-spacing: -1.12px;
+  }
+  .portfolio__link-button {
+    width: 27px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .portfolio {
+    padding: 0 14px 70px;
+  }
+  .portfolio__title {
+    margin-bottom: 40px;
+    font-size: 14px;
+  }
+  .portfolio__link {
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: -0.72px;
+  }
+  .portfolio__link-button {
+    width: 18px;
+    height: 28px;
+    background-size: 10px 10px;
+  }
+}

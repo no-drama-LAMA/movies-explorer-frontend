@@ -1,0 +1,62 @@
+.sign {
+  margin: 0 auto;
+  padding: 70px 0;
+  width: 396px;
+}
+
+.sign__title {
+  margin: 0;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  color: #FFF;
+  font-family: Inter, Arial, sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.sign__text {
+  margin: 0;
+  color: #8B8B8B;
+  text-align: center;
+  font-family: Inter, Arial, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.sign__link {
+  text-decoration: none;
+  color: #4285F4;
+}
+
+.sign__link:hover {
+  opacity: 0.7;
+}
+
+@media screen and (max-width: 768px) {
+  .sign {
+    padding: 230px 0;
+  }
+}
+
+
+@media screen and (max-width: 420px) {
+  .sign {
+    width: 260px;
+    padding: 54px 0 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .sign__title {
+    margin-top: 46px;
+    margin-bottom: 80px;
+    text-align: center;
+  }
+  .sign__text {
+    font-size: 12px;
+  }
+}

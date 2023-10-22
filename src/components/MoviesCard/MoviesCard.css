@@ -1,0 +1,99 @@
+.movie {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  background-color: #222222;
+  box-shadow: 0px 16px 24px rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.movie__image {
+  display: block;
+  width: 100%;
+  height: 151px;
+  object-fit: cover;
+}
+
+.movie__image:hover {
+  opacity: 0.7;
+}
+
+.movie__content {
+  padding: 14px 12px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.movie__text {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+}
+
+.movie__title {
+  margin: 0;
+  margin-bottom: 10px;
+  color: #FFF;
+  font-family: Inter, Arial, sans-serif;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  max-width: 200px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.movie__duration {
+  margin: 0;
+  color: #8B8B8B;
+  font-family: Inter, Arial, sans-serif;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.movie__button {
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+  width: 16px;
+  height: 16px;
+  background-size: cover;
+}
+
+.movie__button_save {
+  background-image: url(../../images/movie-button.svg);
+}
+
+.movie__button_active {
+  background-image: url(../../images/movie-button-saved.svg);
+}
+
+.movie__button_delete {
+  background-image: url(../../images/movie-button-delete.svg);
+}
+
+.movie__button:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .movie__image {
+    height: 190px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .movie__image {
+    height: 168px;
+  }
+}
