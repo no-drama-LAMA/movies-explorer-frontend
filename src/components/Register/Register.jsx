@@ -17,7 +17,7 @@ function Register({setLoggedIn, name, title, buttonText}) {
   return (
     <Sign name={name} isFormValid={isFormValid} onSubmit={enter} title={title} buttonText={buttonText} >
       <label className="form__label">
-        <p className="form__subtitle">Имя</p>
+        <span className="form__subtitle">Имя</span>
         <input
           type="text"
           className={`form__input ${isInputValid.username === undefined || isInputValid.username ? '' : 'form__input_type_error'}`}
@@ -25,13 +25,15 @@ function Register({setLoggedIn, name, title, buttonText}) {
           id="register-username"
           required
           minLength={3}
+          maxLength={30}
           value={inputValues.username}
           onChange={handleChange}
+          placeholder='Имя'
         />
-        <p className="form__input-error-text">{inputMessages.username}</p>
+        <span className="form__input-error-text">{inputMessages.username}</span>
       </label>
       <label className="form__label">
-        <p className="form__subtitle">E-mail</p>
+        <span className="form__subtitle">E-mail</span>
         <input
           type="email"
           className={`form__input ${isInputValid.email === undefined || isInputValid.email ? '' : 'form__input_type_error'}`}
@@ -40,11 +42,12 @@ function Register({setLoggedIn, name, title, buttonText}) {
           required
           onChange={handleChange}
           value={inputValues.email}
+          placeholder='Email'
         />
-        <p className="form__input-error-text">{inputMessages.email}</p>
+        <span className="form__input-error-text">{inputMessages.email}</span>
       </label>
       <label className="form__label">
-        <p className="form__subtitle">Пароль</p>
+        <span className="form__subtitle">Пароль</span>
         <input
           type="password"
           className={`form__input ${isInputValid.password === undefined || isInputValid.password ? '' : 'form__input_type_error'}`}
@@ -55,8 +58,9 @@ function Register({setLoggedIn, name, title, buttonText}) {
           maxLength={30}
           onChange={handleChange}
           value={inputValues.password}
+          placeholder='Пароль'
         />
-        <p className="form__input-error-text">{inputMessages.password}</p>
+        <span className="form__input-error-text">{inputMessages.password}</span>
       </label>
     </Sign>
   )

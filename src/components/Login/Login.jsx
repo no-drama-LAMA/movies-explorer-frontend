@@ -16,7 +16,7 @@ function Login({setLoggedIn, name, title, buttonText}) {
   return (
     <Sign name={name} isFormValid={isFormValid} onSubmit={enter} title={title} buttonText={buttonText}>
       <label className="form__label">
-        <p className="form__subtitle">E-mail</p>
+        <span className="form__subtitle">E-mail</span>
         <input
           type="email"
           className={`form__input ${isInputValid.email === undefined || isInputValid.email ? '' : 'form__input_type_error'}`}
@@ -25,11 +25,12 @@ function Login({setLoggedIn, name, title, buttonText}) {
           required
           value={inputValues.email}
           onChange={handleChange}
+          placeholder='Email'
         />
-        <p className="form__input-error-text">{inputMessages.email}</p>
+        <span className="form__input-error-text">{inputMessages.email}</span>
       </label>
       <label className="form__label">
-        <p className="form__subtitle">Пароль</p>
+        <span className="form__subtitle">Пароль</span>
         <input
           type="password"
           className={`form__input ${isInputValid.password === undefined || isInputValid.password ? '' : 'form__input_type_error'}`}
@@ -40,8 +41,9 @@ function Login({setLoggedIn, name, title, buttonText}) {
           maxLength={30}
           onChange={handleChange}
           value={inputValues.password}
+          placeholder='Пароль'
         />
-        <p className="form__input-error-text">{inputMessages.password}</p>
+        <span className="form__input-error-text">{inputMessages.password}</span>
       </label>
     </Sign>
   )

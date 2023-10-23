@@ -19,28 +19,30 @@ function SearchForm({ isChange }) {
   }
 
   return (
-    <section className="search-form">
+    <section className="search-form" aria-label='Строка поиска'>
       <form className="search-form__form"
-      name="search-form"
-      noValidate
-      value={inputValues.search}
-      onSubmit={enter}
+        name="search-form"
+        noValidate
+        value={inputValues.search}
+        onSubmit={enter}
       >
-        <input
-          type="text"
-          className="search-form__input"
-          name="search-form-input"
-          id="search-form-input"
-          placeholder="Фильм"
-          required
-          onChange={handleChange}
-        />
-        <button className="search-form__button" />
+        <div className="search-form__container">
+          <input
+            type="text"
+            className="search-form__input"
+            name="search-form-input"
+            id="search-form-input"
+            placeholder="Фильм"
+            required
+            onChange={handleChange}
+          />
+          <button type='submit' className="search-form__button" />
+        </div>
+        <p className={`search-form__error-text ${notValidInput && 'search-form__error-text_active'}`}>
+          Чтобы что-нибудь найти - нужно что-нибудь написать ↑
+        </p>
+        <FilterCheckbox isChange={isChange}/>
       </form>
-      <p className={`search-form__error-text ${notValidInput && 'search-form__error-text_active'}`}>
-        Чтобы что-нибудь найти - нужно что-нибудь написать ↑
-      </p>
-      <FilterCheckbox isChange={isChange}/>
     </section>
   )
 }

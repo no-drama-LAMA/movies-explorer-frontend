@@ -25,13 +25,13 @@ function MoviesCardList({ movies }) {
 
   return (
     <section className="movies" aria-label="Фильмы">
-      <div className="movies__container">
-      {cards.map((data) => {
-        return (
-          <MoviesCard key={data.id} nameRU={data.nameRU} url={data.url} trailerLink={data.trailerLink}/>
-        )
-      })}
-      </div>
+      <ul className="movies__container">
+          {cards.map((data) => {
+            return (
+              <MoviesCard key={data.id} nameRU={data.nameRU} url={data.url} trailerLink={data.trailerLink}/>
+            )
+          })}
+      </ul>
       <button type='button' className={`movies__more ${count >= movies.length && 'movies__more_invisible'}`} onClick={clickButtonMore}>Ёще</button>
     </section>
   )

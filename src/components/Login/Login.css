@@ -29,12 +29,17 @@
   line-height: normal;
 }
 
+.form__input:focus {
+  outline: none;
+}
+
 .form__input_type_error {
   color: #FF3055;
 }
 
 .form__input-error-text {
   margin: 0;
+  display: block;
   min-height: 20px;
   color: #EE3465;
   font-family: Inter, Arial, sans-serif;

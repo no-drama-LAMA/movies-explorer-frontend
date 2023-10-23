@@ -29,6 +29,10 @@
   line-height: normal;
 }
 
+.form__input:focus {
+  outline: none;
+}
+
 .form__input_type_error {
   color: #FF3055;
 }

@@ -24,33 +24,39 @@ function Profile({setLoggedIn}) {
         <h1 className="profile__title">Привет, Виталий!</h1>
         <form className="profile__form" name="profile-form" noValidate onSubmit={onSubmit}>
           <label className="profile__label">
-            <p className="profile__subtitle">Имя</p>
-            <input
-              type="text"
-              className={`profile__input ${isInputValid === undefined || isInputValid ? '' : 'profile__input_type_error'}`}
-              name="username"
-              required
-              minLength={3}
-              value={inputValues.username}
-              onChange={handleChange}
-            />
+            <div className="profile__label-container">
+              <span className="profile__subtitle">Имя</span>
+              <input
+                type="text"
+                className={`profile__input ${isInputValid === undefined || isInputValid ? '' : 'profile__input_type_error'}`}
+                name="username"
+                required
+                minLength={3}
+                maxLength={30}
+                value={inputValues.username}
+                onChange={handleChange}
+                placeholder='Имя'
+              />
+            </div>
+            <span className="profile__input-error-text">{inputMessages.username}</span>
           </label>
-          <p className="profile__input-error-text">{inputMessages.username}</p>
-          <div className="profile__line" />
           <label className="profile__label">
-            <p className="profile__subtitle">E-mail</p>
-            <input
-              type="email"
-              className={`profile__input ${isInputValid === undefined || isInputValid ? '' : 'profile__input_type_error'}`}
-              name="email"
-              required
-              value={inputValues.email}
-              onChange={handleChange}
-            />
+            <div className="profile__label-container">
+              <span className="profile__subtitle">E-mail</span>
+              <input
+                type="email"
+                className={`profile__input ${isInputValid === undefined || isInputValid ? '' : 'profile__input_type_error'}`}
+                name="email"
+                required
+                value={inputValues.email}
+                onChange={handleChange}
+                placeholder='Email'
+              />
+            </div>
+            <span className="profile__input-error-text">{inputMessages.email}</span>
           </label>
-          <p className="profile__input-error-text">{inputMessages.email}</p>
           <p className="profile__error-text">Что-то пошло не так...</p>
-          <button className="profile__button">Редактировать</button>
+          <button type='submit' className="profile__button">Редактировать</button>
         </form>
         <Link to={'/'} onClick={quit} className='profile__quite-link'>
           Выйти из аккаунта
