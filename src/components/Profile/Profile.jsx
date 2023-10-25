@@ -24,7 +24,6 @@ function Profile({setLoggedIn}) {
         <h1 className="profile__title">Привет, Виталий!</h1>
         <form className="profile__form" name="profile-form" noValidate onSubmit={onSubmit}>
           <label className="profile__label">
-            <div className="profile__label-container">
               <span className="profile__subtitle">Имя</span>
               <input
                 type="text"
@@ -37,11 +36,9 @@ function Profile({setLoggedIn}) {
                 onChange={handleChange}
                 placeholder='Имя'
               />
-            </div>
-            <span className="profile__input-error-text">{inputMessages.username}</span>
           </label>
-          <label className="profile__label">
-            <div className="profile__label-container">
+          <p className="profile__input-error-text">{inputMessages.username}</p>
+          <label className="profile__label profile__label_last">
               <span className="profile__subtitle">E-mail</span>
               <input
                 type="email"
@@ -52,9 +49,8 @@ function Profile({setLoggedIn}) {
                 onChange={handleChange}
                 placeholder='Email'
               />
-            </div>
-            <span className="profile__input-error-text">{inputMessages.email}</span>
           </label>
+          <p className="profile__input-error-text">{inputMessages.email}</p>
           <p className="profile__error-text">Что-то пошло не так...</p>
           <button type='submit' className="profile__button">Редактировать</button>
         </form>

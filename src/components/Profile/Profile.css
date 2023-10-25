@@ -26,7 +26,7 @@
   margin-bottom: 16px;
 }
 
-.profile__label-container {
+.profile__label {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -57,7 +57,7 @@
 }
 
 .profile__input:focus {
-  outline: none;
+  outline: 0.2px solid #4285F4;
 }
 
 .profile__input_type_error {
@@ -80,9 +80,9 @@
   display: block;
 }
 
-.profile__label:first-child {
-  border-bottom: solid 1px #424242;
-  margin-bottom: 19px;
+.profile__label_last {
+  border-top: solid 1px #424242;
+  padding-top: 19px;
 }
 
 .profile__error-text {
