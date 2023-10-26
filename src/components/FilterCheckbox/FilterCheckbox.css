@@ -1,0 +1,74 @@
+.search-form__filter-checkbox {
+  padding-top: 18px;
+}
+
+.search-form__filter-checkbox-label {
+  position: relative;
+  height: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 14px;
+}
+
+.search-form__filter-checkbox-invisible {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(0 0 0 0);
+}
+
+.search-form__filter-checkbox-visible {
+  position: relative;
+  top: 0px;
+  left: 0;
+}
+
+.search-form__filter-checkbox-visible:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.search-form__filter-checkbox-invisible:checked + .search-form__filter-checkbox-visible .search-form__filter-checkbox-background {
+  fill: #3DDC84;
+}
+
+.search-form__filter-checkbox-circle {
+  transition: all .3s linear;
+}
+
+.search-form__filter-checkbox-invisible:checked + .search-form__filter-checkbox-visible .search-form__filter-checkbox-circle {
+  transform: translateX(16px);
+}
+
+.search-form__filter-checkbox-text {
+  color: #FFF;
+  font-family: Inter, Arial, sans-serif;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+@media screen and (max-width: 768px) {
+  .search-form__filter-checkbox-label {
+    flex-direction: row-reverse;
+    gap: 16px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .search-form__filter-checkbox-label {
+    gap: 13px;
+    justify-content: center;
+  }
+  .search-form__filter-checkbox {
+    padding-top: 30px;
+  }
+  .search-form__filter-checkbox-text {
+    font-size: 11px;
+  }
+}
