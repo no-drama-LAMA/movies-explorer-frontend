@@ -1,18 +1,18 @@
 import './FilterCheckbox.css'
 
-function FilterCheckbox({ isChange }) {
+function FilterCheckbox({ isChange, searchDisable }) {
 
   return (
     <div className="search-form__filter-checkbox">
         <label
-          className="search-form__filter-checkbox-label"
+          className={`search-form__filter-checkbox-label ${searchDisable && 'search-form__filter-checkbox-label_disabled'}`}
           htmlFor="filter-checkbox__invisible-checkbox"
         >
           <input
             type="checkbox"
-            className="search-form__filter-checkbox-invisible"
+            className={`search-form__filter-checkbox-invisible ${searchDisable && 'search-form__filter-checkbox-invisible_disabled'}`}
             id="filter-checkbox__invisible-checkbox"
-            onChange={isChange}
+            onChange={() => isChange()}
           />
           <svg
             className="search-form__filter-checkbox-visible"
@@ -23,13 +23,11 @@ function FilterCheckbox({ isChange }) {
             fill="none"
           >
             <rect
-              
               className="search-form__filter-checkbox-background"
               width={36}
               height={20}
               rx={10}
               fill="#A0A0A0"
-              
             />
             <circle
               className="search-form__filter-checkbox-circle"

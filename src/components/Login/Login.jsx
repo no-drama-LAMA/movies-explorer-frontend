@@ -1,20 +1,17 @@
 import './Login.css'
-import { useNavigate } from 'react-router-dom'
 import useValidation from '../../utils/useValidation';
 import Sign from '../Sign/Sign';
 
-function Login({setLoggedIn, name, title, buttonText}) {
-  const navigation = useNavigate()
+function Login({name, title, buttonText, handleAuthorization, setIsError, isError, isLoading}) {
   const {isInputValid, inputMessages, inputValues, isFormValid, handleChange} = useValidation();
 
   function enter(evt) {
     evt.preventDefault()
-    navigation('/')
-    setLoggedIn(true)
+    handleAuthorization(inputValues.email, inputValues.password)
   }
 
   return (
-    <Sign name={name} isFormValid={isFormValid} onSubmit={enter} title={title} buttonText={buttonText}>
+    <Sign name={name} isFormValid={isFormValid} onSubmit={enter} title={title} buttonText={buttonText} setIsError={setIsError} isError={isError} isLoading={isLoading}>
       <label className="form__label">
         <span className="form__subtitle">E-mail</span>
         <input
@@ -24,7 +21,8 @@ function Login({setLoggedIn, name, title, buttonText}) {
           id="login-email"
           required
           value={inputValues.email}
-          onChange={handleChange}
+          onChange={(evt) => {handleChange(evt); setIsError(false)}}
+          disabled={isLoading}
           placeholder='Email'
         />
         <span className="form__input-error-text">{inputMessages.email}</span>
@@ -39,7 +37,8 @@ function Login({setLoggedIn, name, title, buttonText}) {
           required
           minLength={2}
           maxLength={30}
-          onChange={handleChange}
+          onChange={(evt) => {handleChange(evt); setIsError(false)}}
+          disabled={isLoading}
           value={inputValues.password}
           placeholder='Пароль'
         />

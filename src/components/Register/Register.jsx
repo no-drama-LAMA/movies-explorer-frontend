@@ -1,21 +1,17 @@
 import useValidation from '../../utils/useValidation';
 import Sign from '../Sign/Sign';
 import './Register.css'
-import { useNavigate } from 'react-router-dom'
 
-function Register({setLoggedIn, name, title, buttonText}) {
-  const navigation = useNavigate()
-  
+function Register({name, title, buttonText, handleRegistration, setIsError, isError, isLoading}) {
   const {isInputValid, inputMessages, inputValues, isFormValid, handleChange} = useValidation();
 
   function enter(evt) {
     evt.preventDefault()
-    navigation('/signin')
-    setLoggedIn(true)
+    handleRegistration(inputValues.username, inputValues.email, inputValues.password)
   }
 
   return (
-    <Sign name={name} isFormValid={isFormValid} onSubmit={enter} title={title} buttonText={buttonText} >
+    <Sign name={name} isFormValid={isFormValid} onSubmit={enter} title={title} buttonText={buttonText} setIsError={setIsError} isError={isError} isLoading={isLoading}>
       <label className="form__label">
         <span className="form__subtitle">Имя</span>
         <input
@@ -27,7 +23,8 @@ function Register({setLoggedIn, name, title, buttonText}) {
           minLength={3}
           maxLength={30}
           value={inputValues.username}
-          onChange={handleChange}
+          onChange={(evt) => {handleChange(evt); setIsError(false)}}
+          disabled={isLoading}
           placeholder='Имя'
         />
         <span className="form__input-error-text">{inputMessages.username}</span>
@@ -40,7 +37,8 @@ function Register({setLoggedIn, name, title, buttonText}) {
           name="email"
           id="register-email"
           required
-          onChange={handleChange}
+          onChange={(evt) => {handleChange(evt); setIsError(false)}}
+          disabled={isLoading}
           value={inputValues.email}
           placeholder='Email'
         />
@@ -56,7 +54,8 @@ function Register({setLoggedIn, name, title, buttonText}) {
           required
           minLength={2}
           maxLength={30}
-          onChange={handleChange}
+          onChange={(evt) => {handleChange(evt); setIsError(false)}}
+          disabled={isLoading}
           value={inputValues.password}
           placeholder='Пароль'
         />

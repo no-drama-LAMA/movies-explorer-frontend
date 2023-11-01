@@ -24,6 +24,7 @@
   flex-direction: column;
   flex-wrap: nowrap;
   margin-bottom: 16px;
+  height: 297.4px;
 }
 
 .profile__label {
@@ -100,6 +101,11 @@
   display: block;
 }
 
+.profile__error-text_correct {
+  display: block;
+  color: #3DDC84;
+}
+
 .profile__button {
   background-color: transparent;
   border: 0;
@@ -142,6 +148,9 @@
   .profile__title {
     margin-bottom: 96px;
   }
+  .profile__form {
+    height: 289.4px;
+  }
   .profile__button {
     margin-top: 196px;
   }
@@ -154,6 +163,9 @@
   }
   .profile__title {
     margin-bottom: 80px;
+  }
+  .profile__form {
+    height: 455.6px;
   }
   .profile__button {
     margin-top: 363px;

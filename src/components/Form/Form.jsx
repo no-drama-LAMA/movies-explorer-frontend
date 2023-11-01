@@ -1,6 +1,13 @@
+import { useEffect } from 'react';
 import './Form.css'
+import SubmitButton from '../SubmitButton/SubmitButton';
 
-function Form({ name, children, isFormValid, onSubmit, buttonText }) {
+function Form({name, children, isFormValid, onSubmit, buttonText, setIsError, isError, isLoading}) {
+
+  useEffect(() => {
+    setIsError(false)
+  }, [setIsError])
+
   return (
   <form
     className="form"
@@ -10,12 +17,8 @@ function Form({ name, children, isFormValid, onSubmit, buttonText }) {
     onSubmit={onSubmit}
   >
     {children}
-    <p className="form__error-text">Что-то пошло не так...</p>
-    <button 
-    className={`form__button ${isFormValid ? ' ' : 'form__button_disabled'}`}
-    type="submit">
-      {buttonText}
-    </button>
+    <p className={`form__error-text ${isError && 'form__error-text_visible'}`}>Что-то пошло не так...</p>
+    <SubmitButton buttonText={buttonText} isFormValid={isFormValid} isLoading={isLoading} isError={isError}/>
   </form>
   )
 }

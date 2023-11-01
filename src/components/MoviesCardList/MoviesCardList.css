@@ -3,6 +3,18 @@
   min-height: 308px;
 }
 
+.movies__notification {
+  margin: auto;
+  padding: 0;
+  text-align: center;
+  font-size: 20px;
+  font-family: Inter, Arial, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  color: #fff;
+}
+
 .movies__container {
   padding: 0;
   margin: 0;
@@ -62,7 +74,7 @@
   }
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 480px) {
   .movies {
     padding: 40px 10px 80px;
     min-height: 580px;

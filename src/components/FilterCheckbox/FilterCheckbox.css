@@ -13,12 +13,21 @@
   gap: 14px;
 }
 
+.search-form__filter-checkbox-label_disabled {
+  pointer-events: none;
+  opacity: 0.8;
+}
+
 .search-form__filter-checkbox-invisible {
   position: absolute;
   width: 1px;
   height: 1px;
   overflow: hidden;
   clip-path: inset(0 0 0 0);
+}
+
+.search-form__filter-checkbox-invisible_disabled {
+  pointer-events: none;
 }
 
 .search-form__filter-checkbox-visible {
