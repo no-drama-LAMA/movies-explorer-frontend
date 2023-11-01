@@ -159,8 +159,7 @@ function App() {
             } />
 
             <Route path="/movies" element={
-              <>
-              {/* <ProtectedRoute loggedIn={loggedIn} > */}
+              <ProtectedRoute loggedIn={loggedIn} >
                 <Header loggedIn={loggedIn} />
                 <Movies
                   setIsError={setIsError}
@@ -168,13 +167,11 @@ function App() {
                   isError={isError}
                   addToSaved={handleMovieSave} />
                 <Footer />
-              {/* </ProtectedRoute> */}
-              </>
+              </ProtectedRoute>
             } />
 
             <Route path="/saved-movies" element={
-              <>
-              {/* <ProtectedRoute loggedIn={loggedIn} > */}
+              <ProtectedRoute loggedIn={loggedIn} >
                 <Header loggedIn={loggedIn} />
                 <SavedMovies
                   setIsError={setIsError}
@@ -182,13 +179,11 @@ function App() {
                   deleteFromSaved={handleDeleteMovie}
                 />
                 <Footer />
-              {/* </ProtectedRoute> */}
-              </>
+              </ProtectedRoute>
             } />
 
             <Route path="/profile" element={
-              <>
-              {/* <ProtectedRoute loggedIn={loggedIn} > */}
+              <ProtectedRoute loggedIn={loggedIn} >
                 <Header loggedIn={loggedIn} />
                 <Profile
                   setLoggedIn={setLoggedIn}
@@ -202,8 +197,7 @@ function App() {
                   buttonText="Сохранить"
                   isLoading={isLoading}
                 />
-              {/* </ProtectedRoute> */}
-              </>
+              </ProtectedRoute>
             } />
 
             <Route path="/signin" element={
