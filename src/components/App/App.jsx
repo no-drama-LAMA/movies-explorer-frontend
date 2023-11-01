@@ -127,9 +127,7 @@ function App() {
   }
 
   function handleMovieSave(data) {
-    console.log(data.id);
     const isSaved = savedMovies.some((element) => data.id === element.movieId)
-    console.log(isSaved);
     const clickMovieBtn = savedMovies.filter((movie) => {
       return movie.movieId === data.id
     })
