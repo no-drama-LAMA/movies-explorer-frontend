@@ -58,6 +58,10 @@
   cursor: pointer;
 }
 
+.search-form__button_disabled {
+  pointer-events: none;
+}
+
 .search-form__error-text {
   margin: 0;
   color: #EE3465;

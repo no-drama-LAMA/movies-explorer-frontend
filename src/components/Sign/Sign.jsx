@@ -3,8 +3,7 @@ import './Sign.css'
 import Logo from '../Logo/Logo';
 import Form from '../Form/Form';
 
-function Sign({children, title, buttonText, name, isFormValid, onSubmit}) {
-
+function Sign({children, title, buttonText, name, isFormValid, onSubmit, setIsError, isError, isLoading}) {
   const {pathname} = useLocation();
 
   return (
@@ -14,7 +13,7 @@ function Sign({children, title, buttonText, name, isFormValid, onSubmit}) {
         <h1 className="sign__title">
           {title}
         </h1>
-        <Form buttonText={buttonText} name={name} isFormValid={isFormValid} onSubmit={onSubmit}>
+        <Form buttonText={buttonText} name={name} isFormValid={isFormValid} onSubmit={onSubmit} setIsError={setIsError} isError={isError} isLoading={isLoading}>
           {children}
         </Form>
         {pathname === '/signup' ? 

@@ -1,20 +1,30 @@
 import './SearchForm.css'
 import FilterCheckbox from '../FilterCheckbox/FilterCheckbox'
-import { useState } from 'react'
+import { useEffect } from 'react'
 import useValidation from '../../utils/useValidation'
+import { useLocation } from 'react-router-dom';
 
 
-function SearchForm({ isChange }) {
-  const [notValidInput, setNotValidInput] = useState(false)
-  const {inputValues, isFormValid, handleChange} = useValidation()
+function SearchForm({ isChange, setIsError, isError, searchMovies, searchValue, searchDisable, savedMovies }) {
+  const {inputValues,  handleChange, reset} = useValidation();
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    if ((pathname === '/saved-movies' && searchValue.length === 0)) {
+      reset({ searchinput: '' })
+    } else {
+      reset({ searchinput: searchValue })
+    }
+    setIsError(false)
+  }, [searchValue, setIsError, pathname, savedMovies, reset])
 
   function enter(evt) {
     evt.preventDefault()
-    if (isFormValid) {
-      setNotValidInput(false)
-      return
+    if (evt.target.searchinput.value) {
+      searchMovies(evt.target.searchinput.value)
+      setIsError(false)
     } else {
-      setNotValidInput(true)
+      setIsError(true)
     }
   }
 
@@ -30,18 +40,19 @@ function SearchForm({ isChange }) {
           <input
             type="text"
             className="search-form__input"
-            name="search-form-input"
-            id="search-form-input"
+            name="searchinput"
+            id="searchinput"
             placeholder="Фильм"
             required
-            onChange={handleChange}
+            onChange={(evt) => {handleChange(evt); setIsError(false)}}
+            value={inputValues.searchinput || ''}
           />
           <button type='submit' className="search-form__button" />
         </div>
-        <p className={`search-form__error-text ${notValidInput && 'search-form__error-text_active'}`}>
-          Чтобы что-нибудь найти - нужно что-нибудь написать ↑
+        <p className={`search-form__error-text ${isError && 'search-form__error-text_active'}`}>
+          Нужно ввести ключевое слово
         </p>
-        <FilterCheckbox isChange={isChange}/>
+        <FilterCheckbox isChange={isChange} searchDisable={searchDisable}/>
       </form>
     </section>
   )
