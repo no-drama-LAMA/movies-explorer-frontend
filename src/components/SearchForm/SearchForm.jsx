@@ -45,6 +45,7 @@ function SearchForm({ isChange, setIsError, isError, searchMovies, searchValue, 
             placeholder="Фильм"
             required
             onChange={(evt) => {handleChange(evt); setIsError(false)}}
+            value={inputValues.searchinput || ''}
           />
           <button type='submit' className="search-form__button" />
         </div>

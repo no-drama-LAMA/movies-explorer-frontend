@@ -3,6 +3,7 @@ import SearchForm from '../SearchForm/SearchForm';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import { useCallback, useEffect, useState } from 'react';
 import moviesApi from '../../utils/MoviesApi';
+import { DurationOfShortFilms } from '../../utils/constants';
 
 function Movies({setIsError, isError, addToSaved, savedMovies}) {
   const [currentMovies, setCurrentMovies] = useState([]);
@@ -20,7 +21,7 @@ function Movies({setIsError, isError, addToSaved, savedMovies}) {
     setSearchValue(value);
     setSearchResult(moviesArr.filter((element) => {
       const movieNameRu = element.nameRU.toLowerCase().includes(value.toLowerCase())
-      return isCheckMovies ? (movieNameRu && element.duration <= 40) : movieNameRu
+      return isCheckMovies ? (movieNameRu && element.duration <= DurationOfShortFilms) : movieNameRu
     }));
   }, [])
 

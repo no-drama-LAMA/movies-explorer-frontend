@@ -4,6 +4,7 @@ import './Profile.css'
 import { Link } from 'react-router-dom';
 import CurrentUserContext from '../../contexts/CurrentUserContext';
 import SubmitButton from '../SubmitButton/SubmitButton';
+import { EmailRegex } from '../../utils/constants';
 
 function Profile({isChangeBtn, setIsChangeBtn, notify, isError, handleUpdateUser, quit, buttonText, isLoading, isNotify}) {
   const { inputValues, inputMessages, isInputValid, isFormValid, handleChange, reset } = useValidation();
@@ -55,13 +56,14 @@ function Profile({isChangeBtn, setIsChangeBtn, notify, isError, handleUpdateUser
                 onChange={handleChange}
                 disabled={isLoading || !isChangeBtn}
                 placeholder='Email'
+                pattern={EmailRegex}
               />
           </label>
           <p className="profile__input-error-text">{inputMessages.email}</p>
           <p className={`profile__error-text ${isError ? 'profile__error-text_visible' : isNotify && 'profile__error-text_correct'}`}>{isError ? 'Что-то пошло не так...' : 'Изменения сохранены'}</p>
           {isChangeBtn ?
             <>
-              <SubmitButton buttonText={buttonText} isFormValid={isFormValid} isLoading={isLoading} isError={isError}/>
+              <SubmitButton buttonText={buttonText} isFormValid={isFormValid} isLoading={isLoading} isError={isError} inputValues={inputValues}/>
             </>
           :
             <>

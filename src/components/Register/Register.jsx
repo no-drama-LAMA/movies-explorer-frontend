@@ -1,3 +1,4 @@
+import { EmailRegex } from '../../utils/constants';
 import useValidation from '../../utils/useValidation';
 import Sign from '../Sign/Sign';
 import './Register.css'
@@ -41,6 +42,7 @@ function Register({name, title, buttonText, handleRegistration, setIsError, isEr
           disabled={isLoading}
           value={inputValues.email}
           placeholder='Email'
+          pattern={EmailRegex}
         />
         <span className="form__input-error-text">{inputMessages.email}</span>
       </label>

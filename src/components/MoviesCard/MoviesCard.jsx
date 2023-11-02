@@ -28,8 +28,8 @@ function MoviesCard({ data, savedMovies, addToSaved, deleteFromSaved }) {
   }
 
   return (
-    <li>
-      <article className="movie">
+    <li className="movie">
+      <article>
         <a href={data.trailerLink} className="movie__link" target="_blank" rel="noreferrer">
           <img className="movie__image" src={pathname === '/movies' ? `https://api.nomoreparties.co${data.image.url}` : data.image} alt={data.nameRU} />
         </a>

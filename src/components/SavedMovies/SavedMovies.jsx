@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from 'react'
 import './SavedMovies.css'
 import SearchForm from '../SearchForm/SearchForm';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
+import { DurationOfShortFilms } from '../../utils/constants';
 
 function SavedMovies({setIsError, isError, savedMovies, deleteFromSaved}) {
   const [searchResult, setSearchResult] = useState(savedMovies);
@@ -13,7 +14,7 @@ function SavedMovies({setIsError, isError, savedMovies, deleteFromSaved}) {
     setSearchValue(value);
     setSearchResult(moviesArr.filter((element) => {
       const movieNameRu = element.nameRU.toLowerCase().includes(value.toLowerCase())
-      return isCheckMovies ? (movieNameRu && element.duration <= 40) : movieNameRu
+      return isCheckMovies ? (movieNameRu && element.duration <= DurationOfShortFilms) : movieNameRu
     }));
   }, [])
 

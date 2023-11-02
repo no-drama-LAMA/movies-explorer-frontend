@@ -3,6 +3,7 @@ import MoviesCard from '../MoviesCard/MoviesCard';
 import './MoviesCardList.css'
 import { useLocation } from 'react-router-dom';
 import Preloader from '../Preloader/Preloader';
+import { ExtraLargeInit, LargeInit, LargeScreen, LargeStep, MediumInit, MediumScreen, MediumStep, SmallInit, SmallScreen, SmallStep } from '../../utils/constants';
 
 function MoviesCardList({ movies, savedMovies, isLoading, cardListError, searchDisable, addToSaved, deleteFromSaved }) {
   const [count, setCount] = useState('');
@@ -10,18 +11,18 @@ function MoviesCardList({ movies, savedMovies, isLoading, cardListError, searchD
   const { pathname } = useLocation();
 
   function putCards() {
-    const counter = { init: 16, step: 4};
-    if (window.innerWidth < 1025) {
-      counter.init = 12;
-      counter.step = 3;
+    const counter = { init: ExtraLargeInit, step: LargeStep};
+    if (window.innerWidth < LargeScreen) {
+      counter.init = LargeInit;
+      counter.step = MediumStep;
     }
-    if (window.innerWidth < 769) {
-      counter.init = 8;
-      counter.step = 2;
+    if (window.innerWidth < MediumScreen) {
+      counter.init = MediumInit;
+      counter.step = SmallStep;
     }
-    if (window.innerWidth < 481) {
-      counter.init = 5;
-      counter.step = 2;
+    if (window.innerWidth < SmallScreen) {
+      counter.init = SmallInit;
+      counter.step = SmallStep;
     }
     return counter
   }
@@ -46,7 +47,7 @@ function MoviesCardList({ movies, savedMovies, isLoading, cardListError, searchD
       window.addEventListener('resize', putCountCards);
       return () => window.removeEventListener('resize', putCountCards);
     }
-  }, [pathname])
+  }, [pathname, movies])
 
   function clickButtonMore() {
     setCount(count + putCards().step);

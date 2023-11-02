@@ -10,7 +10,7 @@ import Login from "../Login/Login";
 import Register from "../Register/Register";
 import PageNotFound from "../PageNotFound/PageNotFound";
 import Footer from "../Footer/Footer";
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import { Navigate, Route, Routes, useNavigate } from 'react-router-dom';
 import { useCallback, useEffect, useState } from 'react';
 import mainApi from '../../utils/MainApi';
 import Preloader from '../Preloader/Preloader';
@@ -157,7 +157,8 @@ function App() {
             } />
 
             <Route path="/movies" element={
-              <ProtectedRoute loggedIn={loggedIn} >
+              // <ProtectedRoute loggedIn={loggedIn} >
+              <>
                 <Header loggedIn={loggedIn} />
                 <Movies
                   setIsError={setIsError}
@@ -165,7 +166,8 @@ function App() {
                   isError={isError}
                   addToSaved={handleMovieSave} />
                 <Footer />
-              </ProtectedRoute>
+                </>
+              // </ProtectedRoute>
             } />
 
             <Route path="/saved-movies" element={
@@ -181,7 +183,8 @@ function App() {
             } />
 
             <Route path="/profile" element={
-              <ProtectedRoute loggedIn={loggedIn} >
+              // <ProtectedRoute loggedIn={loggedIn} >
+              <>
                 <Header loggedIn={loggedIn} />
                 <Profile
                   setLoggedIn={setLoggedIn}
@@ -195,10 +198,15 @@ function App() {
                   buttonText="Сохранить"
                   isLoading={isLoading}
                 />
-              </ProtectedRoute>
+                </>
+              // </ProtectedRoute>
             } />
 
             <Route path="/signin" element={
+              loggedIn
+              ? 
+              <Navigate to='/movies' replace />
+              :
               <Login
                 name="login"
                 title="Рады видеть!"
@@ -211,6 +219,10 @@ function App() {
             } />
 
             <Route path="/signup" element={
+              loggedIn
+              ?
+              <Navigate to='/movies' replace />
+              :
               <Register
                 name="register"
                 title="Добро пожаловать!"
